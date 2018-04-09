@@ -6,16 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://samchan1989.github.io">
-  <title>Archives | Sam独立博客</title>
+  <title>如何使用Spring测试框架 | Sam独立博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Sam Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sam独立博客">
-<meta property="og:url" content="https://samchan1989.github.io/archives/index.html">
+  <meta name="description" content="Spring是我们很常用的框架，那么学会使用Spring的测试框架就会帮我们节省很多的时间。">
+<meta name="keywords" content="Java,Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用Spring测试框架">
+<meta property="og:url" content="https://samchan1989.github.io/2018/04/07/SpringTest/index.html">
 <meta property="og:site_name" content="Sam独立博客">
+<meta property="og:description" content="Spring是我们很常用的框架，那么学会使用Spring的测试框架就会帮我们节省很多的时间。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://samchan1989.github.io/2018/04/07/SpringTest/1.png">
+<meta property="og:image" content="https://samchan1989.github.io/2018/04/07/SpringTest/2.png">
+<meta property="og:updated_time" content="2018-04-09T08:03:37.123Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sam独立博客">
+<meta name="twitter:title" content="如何使用Spring测试框架">
+<meta name="twitter:description" content="Spring是我们很常用的框架，那么学会使用Spring的测试框架就会帮我们节省很多的时间。">
+<meta name="twitter:image" content="https://samchan1989.github.io/2018/04/07/SpringTest/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Sam独立博客" type="application/atom+xml">
   
@@ -153,36 +160,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-SpringTest" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      如何使用Spring测试框架
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/07/SpringTest/" class="archive-article-date">
+
+        
+        <a href="/2018/04/07/SpringTest/" class="archive-article-date">
   	<time datetime="2018-04-07T02:41:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-07</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/07/SpringTest/">如何使用Spring测试框架</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Spring是我们很常用的框架，那么学会使用Spring的测试框架就会帮我们节省很多的时间。<a id="more"></a></p>
+<ol>
+<li><h1 id="架构的区别"><a href="#架构的区别" class="headerlink" title="架构的区别"></a>架构的区别</h1></li>
+</ol>
+<p>传统的junit方法是在spring外使用junit的框架来进行测试。如下图<br><img src="/2018/04/07/SpringTest/1.png" alt=""></p>
+<p>现在使用spring的test框架可以更方便简洁，相当于使用spring接管junit<br><img src="/2018/04/07/SpringTest/2.png" alt=""></p>
+<ol start="2">
+<li><h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1></li>
+</ol>
+<h2 id="第一步：在类的头部加上注释，使Spring的测试框架接管你的这个类。"><a href="#第一步：在类的头部加上注释，使Spring的测试框架接管你的这个类。" class="headerlink" title="第一步：在类的头部加上注释，使Spring的测试框架接管你的这个类。"></a>第一步：在类的头部加上注释，使Spring的测试框架接管你的这个类。</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br></pre></td></tr></table></figure>
+<h2 id="第二步：加载上下文"><a href="#第二步：加载上下文" class="headerlink" title="第二步：加载上下文"></a>第二步：加载上下文</h2><p>有三种加载上下文的方法<br>第一种，指定当前目录下的具体的上下文xml,此方法适用于本地测试时。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ContextConfiguration</span>(<span class="string">"bean.xml"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>第二种，从classpath查找指定的上下文。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ContextConfiguration</span>(<span class="string">"classpath:com/spring/test/bean.xml"</span>)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(<span class="string">"classpath:applicationContext.xml"</span>)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(<span class="string">"/applicationContext.xml"</span>)从classpath找</span><br></pre></td></tr></table></figure></p>
+<p>第三种，什么都不写就默认找当前类名-Context.xml的上下文文件。如类名加Test则会查找Test-Context.xml。如果没有会报错<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ContextConfiguration</span></span><br></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -198,61 +237,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://samchan1989.github.io/2018/04/07/SpringTest/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/06/Spring_Construct_NonConstruceBean/" class="archive-article-date">
-  	<time datetime="2018-04-06T15:00:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-06</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/06/Spring_Construct_NonConstruceBean/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring实例化没有构造方法的Bean</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/06/Spring_Construct_NonConstruceBean/">Spring实例化没有构造方法的Bean</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -275,8 +359,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
