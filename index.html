@@ -155,6 +155,109 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-proxy-mod" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/08/proxy-mod/">代理的实现方式</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/08/proxy-mod/" class="archive-article-date">
+  	<time datetime="2018-05-08T15:38:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><pre><code>代理模式分为静态代理和动态代理&lt;!--more--&gt;
+</code></pre><h3 id="1-静态代理"><a href="#1-静态代理" class="headerlink" title="1.静态代理"></a>1.静态代理</h3><pre><code>原理 静态代理需要三个对象
+抽象主题对象:抽象主题角色,现实世界不存在
+真实主题对象:我们本来要执行的内容,相当于租房事件中的房东
+代理主题对象:代理主题角色要有对真实对象的引用,从而可以在任何时候操作真实主题对象,相当于租房事件中的中介
+</code></pre><p>下面例子模拟了事务的实现<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/E1501F733921403C96BEB87CFD50329C/920" alt="image1"><br>抽象主题角色<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/4C6C58838ACE456EB4BC2B549EF60366/906" alt="image2"><br>真实主题角色<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/8A609FC57082449D81FC0943A8ED7A4F/908" alt="image3"><br>代理主题角色(传入的时候,应该传入接口,这样就可以实现多重代理)<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/D07754EEFD464D69B6739CA1021E5958/910" alt="image4"><br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/251C694E70804DE0AC1371D33DFBB97B/912" alt="image5"></p>
+<p>客服端的实现<br>正常应该是这样<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/370F789151754BB7BB8F33F8E7B4CCBE/926" alt="image6"><br>实现一次代理<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/94572B1A06E04837B89BB09BE6F928A8/929" alt="image7"><br>实现二次代理<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/6F352F4497164CBA97EA3FBBDA45A493/931" alt="image8"></p>
+<pre><code>总结:静态代理相当于找一个代理类实现跟真实类同样的接口(有同样的实现方法),然后再代理类中调用实体类方法并在调用前后增加一些代理类想要实现的效果(如日志管理,事务管理等)
+缺点:一次代理就需要创建一个接口,一个代理,一个实现,代码很多如果有代理角色存在,还必须修改调用方的代码
+</code></pre><h3 id="2-动态代理"><a href="#2-动态代理" class="headerlink" title="2.动态代理"></a>2.动态代理</h3><pre><code>动态代理分为JDK动态代理和Cglib动态代理
+</code></pre><h3 id="2-1jdk动态代理"><a href="#2-1jdk动态代理" class="headerlink" title="2.1jdk动态代理"></a>2.1jdk动态代理</h3><blockquote>
+<p>原理图<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/8851EEC3D9D44648A0A4AB1976E5A303/960" alt="image8"><br>工具类:<br>负责生成代理对象<br>生成代理对象的方法为:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">newProxyInstance</span><span class="params">(ClassLoader loader, 真实对象的类加载器</span></span></span><br><span class="line"><span class="function"><span class="params">                                         Class&lt;?&gt;[] interfaces, 真实对象的接口</span></span></span><br><span class="line"><span class="function"><span class="params">                                         InvocationHandler h)</span></span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>InvocationHandler为实现的接口,复写他的invoke方法,重写代理需要实现的功能<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/D30F38195E6D45779C8902A167A9FA3C/963" alt="image9"></p>
+<p><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/F0078B4E49C44103AD615943D240904D/966" alt="image10"></p>
+<p>客户端的实现<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/7580F501C270472589C21FE92E2248A5/968" alt="image11"></p>
+<pre><code>优点:有N个接口就会有N个实现,只需要一个代理类,就可以对所有有接口的类代理.
+缺点:
+1.需要代理的类必须有接口
+2.需要修改客户端
+</code></pre><h3 id="2-2Cglib动态代理"><a href="#2-2Cglib动态代理" class="headerlink" title="2.2Cglib动态代理"></a>2.2Cglib动态代理</h3><pre><code>代理工具类需要实现MethodInterceptor,通过Enhancer增强对象
+</code></pre><p><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/E9F52AA1A690440C878D89A3915203D3/995" alt="image12">   </p>
+<p>在复写intercept方法中写需要代理类增强的功能(事物管理)</p>
+<p><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/0AA6ECE5F7A3423F9D35BE4BF6C5A1F6/997" alt="image13"> </p>
+<pre><code>优点:相比JDK动态代理,真实主题对象不需要有接口
+缺点:仍然需要修改客服端的代码
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/08/proxy-mod/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-spring-property-placeholder" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -505,6 +608,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
             
             <div class="clearfix"></div>

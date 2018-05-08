@@ -6,16 +6,35 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.samchan.top">
-  <title>Tag: Spring | Sam独立博客</title>
+  <title>代理的实现方式 | Sam独立博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Sam Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sam独立博客">
-<meta property="og:url" content="http://www.samchan.top/tags/Spring/index.html">
+  <meta name="description" content="代理模式代理模式分为静态代理和动态代理&amp;lt;!--more--&amp;gt; 1.静态代理原理 静态代理需要三个对象 抽象主题对象:抽象主题角色,现实世界不存在 真实主题对象:我们本来要执行的内容,相当于租房事件中的房东 代理主题对象:代理主题角色要有对真实对象的引用,从而可以在任何时候操作真实主题对象,相当于租房事件中的中介 下面例子模拟了事务的实现抽象主题角色真实主题角色代理主题角色(传入的时候,">
+<meta name="keywords" content="Spring,设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代理的实现方式">
+<meta property="og:url" content="http://www.samchan.top/2018/05/08/proxy-mod/index.html">
 <meta property="og:site_name" content="Sam独立博客">
+<meta property="og:description" content="代理模式代理模式分为静态代理和动态代理&amp;lt;!--more--&amp;gt; 1.静态代理原理 静态代理需要三个对象 抽象主题对象:抽象主题角色,现实世界不存在 真实主题对象:我们本来要执行的内容,相当于租房事件中的房东 代理主题对象:代理主题角色要有对真实对象的引用,从而可以在任何时候操作真实主题对象,相当于租房事件中的中介 下面例子模拟了事务的实现抽象主题角色真实主题角色代理主题角色(传入的时候,">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/E1501F733921403C96BEB87CFD50329C/920">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/4C6C58838ACE456EB4BC2B549EF60366/906">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/8A609FC57082449D81FC0943A8ED7A4F/908">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/D07754EEFD464D69B6739CA1021E5958/910">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/251C694E70804DE0AC1371D33DFBB97B/912">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/370F789151754BB7BB8F33F8E7B4CCBE/926">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/94572B1A06E04837B89BB09BE6F928A8/929">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/6F352F4497164CBA97EA3FBBDA45A493/931">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/8851EEC3D9D44648A0A4AB1976E5A303/960">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/D30F38195E6D45779C8902A167A9FA3C/963">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/F0078B4E49C44103AD615943D240904D/966">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/7580F501C270472589C21FE92E2248A5/968">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/E9F52AA1A690440C878D89A3915203D3/995">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/0AA6ECE5F7A3423F9D35BE4BF6C5A1F6/997">
+<meta property="og:updated_time" content="2018-05-08T15:42:36.658Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sam独立博客">
+<meta name="twitter:title" content="代理的实现方式">
+<meta name="twitter:description" content="代理模式代理模式分为静态代理和动态代理&amp;lt;!--more--&amp;gt; 1.静态代理原理 静态代理需要三个对象 抽象主题对象:抽象主题角色,现实世界不存在 真实主题对象:我们本来要执行的内容,相当于租房事件中的房东 代理主题对象:代理主题角色要有对真实对象的引用,从而可以在任何时候操作真实主题对象,相当于租房事件中的中介 下面例子模拟了事务的实现抽象主题角色真实主题角色代理主题角色(传入的时候,">
+<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/E1501F733921403C96BEB87CFD50329C/920">
   
     <link rel="alternative" href="/atom.xml" title="Sam独立博客" type="application/atom+xml">
   
@@ -153,36 +172,91 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-proxy-mod" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/08/proxy-mod/" class="archive-article-date">
-  	<time datetime="2018-05-08T15:38:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/08/proxy-mod/">代理的实现方式</a>
+    <h1 class="article-title" itemprop="name">
+      代理的实现方式
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/05/08/proxy-mod/" class="archive-article-date">
+  	<time datetime="2018-05-08T15:38:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><pre><code>代理模式分为静态代理和动态代理&lt;!--more--&gt;
+</code></pre><h3 id="1-静态代理"><a href="#1-静态代理" class="headerlink" title="1.静态代理"></a>1.静态代理</h3><pre><code>原理 静态代理需要三个对象
+抽象主题对象:抽象主题角色,现实世界不存在
+真实主题对象:我们本来要执行的内容,相当于租房事件中的房东
+代理主题对象:代理主题角色要有对真实对象的引用,从而可以在任何时候操作真实主题对象,相当于租房事件中的中介
+</code></pre><p>下面例子模拟了事务的实现<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/E1501F733921403C96BEB87CFD50329C/920" alt="image1"><br>抽象主题角色<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/4C6C58838ACE456EB4BC2B549EF60366/906" alt="image2"><br>真实主题角色<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/8A609FC57082449D81FC0943A8ED7A4F/908" alt="image3"><br>代理主题角色(传入的时候,应该传入接口,这样就可以实现多重代理)<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/D07754EEFD464D69B6739CA1021E5958/910" alt="image4"><br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/251C694E70804DE0AC1371D33DFBB97B/912" alt="image5"></p>
+<p>客服端的实现<br>正常应该是这样<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/370F789151754BB7BB8F33F8E7B4CCBE/926" alt="image6"><br>实现一次代理<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/94572B1A06E04837B89BB09BE6F928A8/929" alt="image7"><br>实现二次代理<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/6F352F4497164CBA97EA3FBBDA45A493/931" alt="image8"></p>
+<pre><code>总结:静态代理相当于找一个代理类实现跟真实类同样的接口(有同样的实现方法),然后再代理类中调用实体类方法并在调用前后增加一些代理类想要实现的效果(如日志管理,事务管理等)
+缺点:一次代理就需要创建一个接口,一个代理,一个实现,代码很多如果有代理角色存在,还必须修改调用方的代码
+</code></pre><h3 id="2-动态代理"><a href="#2-动态代理" class="headerlink" title="2.动态代理"></a>2.动态代理</h3><pre><code>动态代理分为JDK动态代理和Cglib动态代理
+</code></pre><h3 id="2-1jdk动态代理"><a href="#2-1jdk动态代理" class="headerlink" title="2.1jdk动态代理"></a>2.1jdk动态代理</h3><blockquote>
+<p>原理图<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/8851EEC3D9D44648A0A4AB1976E5A303/960" alt="image8"><br>工具类:<br>负责生成代理对象<br>生成代理对象的方法为:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">newProxyInstance</span><span class="params">(ClassLoader loader, 真实对象的类加载器</span></span></span><br><span class="line"><span class="function"><span class="params">                                         Class&lt;?&gt;[] interfaces, 真实对象的接口</span></span></span><br><span class="line"><span class="function"><span class="params">                                         InvocationHandler h)</span></span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>InvocationHandler为实现的接口,复写他的invoke方法,重写代理需要实现的功能<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/D30F38195E6D45779C8902A167A9FA3C/963" alt="image9"></p>
+<p><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/F0078B4E49C44103AD615943D240904D/966" alt="image10"></p>
+<p>客户端的实现<br><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/7580F501C270472589C21FE92E2248A5/968" alt="image11"></p>
+<pre><code>优点:有N个接口就会有N个实现,只需要一个代理类,就可以对所有有接口的类代理.
+缺点:
+1.需要代理的类必须有接口
+2.需要修改客户端
+</code></pre><h3 id="2-2Cglib动态代理"><a href="#2-2Cglib动态代理" class="headerlink" title="2.2Cglib动态代理"></a>2.2Cglib动态代理</h3><pre><code>代理工具类需要实现MethodInterceptor,通过Enhancer增强对象
+</code></pre><p><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/E9F52AA1A690440C878D89A3915203D3/995" alt="image12">   </p>
+<p>在复写intercept方法中写需要代理类增强的功能(事物管理)</p>
+<p><img src="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/0AA6ECE5F7A3423F9D35BE4BF6C5A1F6/997" alt="image13"> </p>
+<pre><code>优点:相比JDK动态代理,真实主题对象不需要有接口
+缺点:仍然需要修改客服端的代码
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>你的赞赏是对我最大的肯定<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alicash.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wxcash.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -198,145 +272,116 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.samchan.top/2018/05/08/proxy-mod/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/12/spring-property-placeholder/" class="archive-article-date">
-  	<time datetime="2018-04-12T02:59:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/12/spring-property-placeholder/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring如何加载porperties文件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/12/spring-property-placeholder/">Spring如何加载porperties文件</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/07/SpringTest/" class="archive-article-date">
-  	<time datetime="2018-04-07T02:41:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/07/SpringTest/">如何使用Spring测试框架</a>
-    </h1>
+  <div id="SOHUCS" sid="proxy-mod" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytzgdepa",
+        conf: "ecf9736d5624d7db55b46a340491bada"
+    });
+</script>
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/06/Spring_Construct_NonConstruceBean/" class="archive-article-date">
-  	<time datetime="2018-04-06T15:00:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/06/Spring_Construct_NonConstruceBean/">Spring实例化没有构造方法的Bean</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -360,9 +405,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
