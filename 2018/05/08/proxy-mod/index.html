@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://www.samchan.top">
   <title>代理的实现方式 | Sam独立博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="代理模式代理模式分为静态代理和动态代理&amp;lt;!--more--&amp;gt; 1.静态代理原理 静态代理需要三个对象 抽象主题对象:抽象主题角色,现实世界不存在 真实主题对象:我们本来要执行的内容,相当于租房事件中的房东 代理主题对象:代理主题角色要有对真实对象的引用,从而可以在任何时候操作真实主题对象,相当于租房事件中的中介 下面例子模拟了事务的实现抽象主题角色真实主题角色代理主题角色(传入的时候,">
+  <meta name="description" content="代理模式代理模式分为静态代理和动态代理">
 <meta name="keywords" content="Spring,设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="代理的实现方式">
 <meta property="og:url" content="http://www.samchan.top/2018/05/08/proxy-mod/index.html">
 <meta property="og:site_name" content="Sam独立博客">
-<meta property="og:description" content="代理模式代理模式分为静态代理和动态代理&amp;lt;!--more--&amp;gt; 1.静态代理原理 静态代理需要三个对象 抽象主题对象:抽象主题角色,现实世界不存在 真实主题对象:我们本来要执行的内容,相当于租房事件中的房东 代理主题对象:代理主题角色要有对真实对象的引用,从而可以在任何时候操作真实主题对象,相当于租房事件中的中介 下面例子模拟了事务的实现抽象主题角色真实主题角色代理主题角色(传入的时候,">
+<meta property="og:description" content="代理模式代理模式分为静态代理和动态代理">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/E1501F733921403C96BEB87CFD50329C/920">
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/4C6C58838ACE456EB4BC2B549EF60366/906">
@@ -30,10 +30,10 @@
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/7580F501C270472589C21FE92E2248A5/968">
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/E9F52AA1A690440C878D89A3915203D3/995">
 <meta property="og:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/0AA6ECE5F7A3423F9D35BE4BF6C5A1F6/997">
-<meta property="og:updated_time" content="2018-05-08T15:42:36.658Z">
+<meta property="og:updated_time" content="2018-05-08T15:43:50.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代理的实现方式">
-<meta name="twitter:description" content="代理模式代理模式分为静态代理和动态代理&amp;lt;!--more--&amp;gt; 1.静态代理原理 静态代理需要三个对象 抽象主题对象:抽象主题角色,现实世界不存在 真实主题对象:我们本来要执行的内容,相当于租房事件中的房东 代理主题对象:代理主题角色要有对真实对象的引用,从而可以在任何时候操作真实主题对象,相当于租房事件中的中介 下面例子模拟了事务的实现抽象主题角色真实主题角色代理主题角色(传入的时候,">
+<meta name="twitter:description" content="代理模式代理模式分为静态代理和动态代理">
 <meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/d5841cc22f3124407bcd2143c596dd20/xmlnote/E1501F733921403C96BEB87CFD50329C/920">
   
     <link rel="alternative" href="/atom.xml" title="Sam独立博客" type="application/atom+xml">
@@ -192,8 +192,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><pre><code>代理模式分为静态代理和动态代理&lt;!--more--&gt;
-</code></pre><h3 id="1-静态代理"><a href="#1-静态代理" class="headerlink" title="1.静态代理"></a>1.静态代理</h3><pre><code>原理 静态代理需要三个对象
+        <h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><pre><code>代理模式分为静态代理和动态代理
+</code></pre><a id="more"></a>
+<h3 id="1-静态代理"><a href="#1-静态代理" class="headerlink" title="1.静态代理"></a>1.静态代理</h3><pre><code>原理 静态代理需要三个对象
 抽象主题对象:抽象主题角色,现实世界不存在
 真实主题对象:我们本来要执行的内容,相当于租房事件中的房东
 代理主题对象:代理主题角色要有对真实对象的引用,从而可以在任何时候操作真实主题对象,相当于租房事件中的中介
